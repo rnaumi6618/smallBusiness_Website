@@ -1,0 +1,133 @@
+<%- include('layouts/header'); -%>
+<body>
+  <h1>Boutique Shop</h1>
+  <%- include('layouts/nav'); -%>
+  <section class="w50">
+    <form name="myform" method="Post" onsubmit="return formSubmit();"  action="" >
+      <label>Name</label>
+      <input id="name" placeholder="First Last" type="text" name="name"><br/>
+      <label>Address</label>
+      <input id="address" placeholder="enter address" type="text" name="address"><br/>
+      <label>City</label>
+      <input id="city" placeholder=" " type="text" name="city"><br/>
+     <label>Province</label>
+  <select name="Province" id="Province">
+      <option value="">----- Select -----</option>
+      <option value="Alberta">Alberta</option>
+      <option value="British Columbia">British Columbia</option>
+      <option value="Manitoba">Manitoba</option>
+      <option value="New Brunswick">New Brunswick</option>
+      <option value="Newfoundland">Newfoundland</option>
+      <option value="Northwest Territories">Northwest</option>
+      <option value="Nova Scotia">Nova Scotia</option>
+      <option value= "Nunavut">Nunavut</option>
+      <option value= "Ontario">Ontario</option>
+      <option value="Quebec">Quebec</option>
+      <option value="Saskatchewan">Saskatchewan</option>
+      <option value="Yukon">Yukon</option>
+      <option value="Prince Edward Island">Prince Edward Island</option>
+  </select>
+      <label>Email</label>
+      <input id="email" placeholder="email@domain.com" type="email" name="email"><br/>
+      <label>Phone</label>
+      <input id="phone" placeholder="123-123-1234" type="phone" name="phone"><br/>
+      <label >Tee shirt:</label>
+      <input type="number" name="TeeShirt" min="0">
+      <label >Formal shirt:</label>
+      <input type="number" name="FormalShirt" min="0">
+      <label >Pants:</label>
+      <input type="number" name="Pants" min="0">
+      <br/><br/>
+
+      <input type="submit" value="Submit">
+      <p id="errors">
+        <% if(typeof(errors) != 'undefined') { 
+           for(var error of errors){
+          %>
+            <p><%= error.msg %></p>
+        <% 
+          }
+          }
+         %>
+      </p>
+    </form>  
+</section>
+<section class="w50">
+  <div class="formData">
+    <%
+      if(typeof(name) != 'undefined'){
+    %>
+    <p id="formResult">Your Receipt :</p>
+    <table>
+      <tr>
+        <th> Name:</th>
+        <td><%= name %></td>
+      </tr>
+      <tr>
+          <th>address: </th>
+          <td><%= address %></td>
+        </tr>
+      <tr>
+          <th>city: </th>
+          <td><%= city %></td>
+      </tr>
+      <tr>
+          <th> Province:</th>
+          <td><%= Province %></td>
+        </tr>
+      <tr>
+        <th> Phone:</th>
+        <td><%= phone %></td>
+      </tr>
+      <tr>
+          <th> Email:</th>
+          <td><%= email %></td>
+          <% if(teeShirtQuantity && teeShirtQuantity > 0){ %>
+              <tr>
+                  <th>Tee shirt(30$): </th>
+                  <td><%= teeShirtQuantity %></td>
+              </tr>
+          <% } %>
+          
+          <% if(formalShirtQuantity && formalShirtQuantity > 0){ %>
+              <tr>
+                  <th>Formal shirt(40$): </th>
+                  <td><%= formalShirtQuantity %></td>
+              </tr>
+          <% } %>
+          
+          <% if(pantsQuantity && pantsQuantity > 0){ %>
+              <tr>
+                  <th>Pants(20$): </th>
+                  <td><%= pantsQuantity %></td>
+              </tr>
+          <% } %>
+      <tr>
+        <th>SubTotal: </th>
+        <td><%= subTotal %></td>
+      </tr>
+      <tr>
+        <th>Tax: </th>
+        <td><%= tax %></td>
+      </tr>
+      <tr>
+        <th>Total: </th>
+        <td><%= total %></td>
+      </tr>
+    </table>
+    <%
+      }
+    %>
+  </div>
+</section>
+<div class="clear"></div>
+</body>
+<%- include('layouts/footer'); -%>
+
+
+
+
+
+
+
+

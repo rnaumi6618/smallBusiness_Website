@@ -1,0 +1,76 @@
+<%- include('layouts/header'); -%>
+<body>
+  <h1>Boutique Shop</h1>
+  <%- include('layouts/nav'); -%>
+  <h2>Thanks for the order</h2>
+  <section class="w50">
+    <div class="formData">
+    <%
+      if(typeof(name) != 'undefined'){
+    %>
+    <p id="formResult">Your Receipt :</p>
+    <table>
+      <tr>
+        <th> Name:</th>
+        <td><%= name %></td>
+      </tr>
+      <tr>
+          <th>address: </th>
+          <td><%= address %></td>
+        </tr>
+      <tr>
+          <th>city: </th>
+          <td><%= city %></td>
+      </tr>
+      <tr>
+          <th> Province:</th>
+          <td><%= Province %></td>
+        </tr>
+      <tr>
+        <th> Phone:</th>
+        <td><%= phone %></td>
+      </tr>
+      <tr>
+          <th> Email:</th>
+          <td><%= email %></td>
+          <% if(teeShirtQuantity && teeShirtQuantity > 0){ %>
+              <tr>
+                  <th>Tee shirt(30$): </th>
+                  <td><%= teeShirtQuantity %></td>
+              </tr>
+          <% } %>
+          
+          <% if(formalShirtQuantity && formalShirtQuantity > 0){ %>
+              <tr>
+                  <th>Formal shirt(40$): </th>
+                  <td><%= formalShirtQuantity %></td>
+              </tr>
+          <% } %>
+          
+          <% if(pantsQuantity && pantsQuantity > 0){ %>
+              <tr>
+                  <th>Pants(20$): </th>
+                  <td><%= pantsQuantity %></td>
+              </tr>
+          <% } %>
+      <tr>
+        <th>SubTotal: </th>
+        <td><%= subTotal %></td>
+      </tr>
+      <tr>
+        <th>Tax: </th>
+        <td><%= tax %></td>
+      </tr>
+      <tr>
+        <th>Total: </th>
+        <td><%= total %></td>
+      </tr>
+    </table>
+    <%
+      }
+    %>
+  </div>
+</section>
+<div class="clear"></div>
+</body>
+<%- include('layouts/footer'); -%>

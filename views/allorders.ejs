@@ -1,0 +1,45 @@
+<%- include('layouts/header'); -%>
+<body>
+  <%- include('layouts/nav'); -%>
+  <!-- <a href="/logout"> Logout</a> -->
+  <section class="w50">
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Address</th>
+                <th>Province</th>
+                <th>City</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>TeeShirt</th>
+                <th>FormalShirt</th>
+                <th>Pants</th>
+                <th>Sub Total</th>
+                <th>Tax</th>
+                <th>Total</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% for(var order of orders) { %>
+                <tr>
+                    <td><%= order.name %></td>
+                    <td><%= order.address %></td>
+                    <td><%= order.Province %></td>
+                    <td><%= order.city %></td>
+                    <td><%= order.email %></td>
+                    <td><%= order.phone %></td>
+                    <td><%= order.teeShirtQuantity %></td>
+                    <td><%= order.formalShirtQuantity %></td>
+                    <td><%= order.pantsQuantity %></td>
+                    <td><%= order.subTotal %></td>
+                    <td><%= order.tax %></td>
+                    <td><%= order.total %></td>
+                </tr>
+            <% } %>
+        </tbody>
+    </table>
+</section>
+<div class="clear"></div>
+</body>
+<%- include('layouts/footer'); -%>
